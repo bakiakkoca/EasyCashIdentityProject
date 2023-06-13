@@ -24,7 +24,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EasyCashIdentityProject.DataAccessLayer\EasyCashIdentityProject.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\EasyCashIdentityProject.DtoLayer\EasyCashIdentityProject.DtoLayer.csproj" />
     <ProjectReference Include="..\EasyCashIdentityProject.EntityLayer\EasyCashIdentityProject.EntityLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AppRoleValidationRules\" />
+    <Folder Include="CustomerAccountProcessValidationRules\" />
+    <Folder Include="CustomerAccountValidationRules\" />
   </ItemGroup>
 
 </Project>
