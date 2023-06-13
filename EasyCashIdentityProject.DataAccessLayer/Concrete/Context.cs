@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace EasyCashIdentityProject.DataAccessLayer.Concrete
 {
-    public class Context : IdentityDbContext
+    public class Context : IdentityDbContext<AppUser, AppRole, int>
+    //aspnetuser sinifinin karsiligi appuser
+    //aspnetrole sinifinin karsiligi approle
+    //ve int turunu verdik
     {
         //miras olarak DbContext vermedim IdentityDbContext ozunde DbContexti
         //miras alir o yuzden vermedim. Identity calisicagim icin onu verdim.
