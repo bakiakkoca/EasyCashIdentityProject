@@ -29,9 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AppRoleValidationRules\" />
-    <Folder Include="CustomerAccountProcessValidationRules\" />
-    <Folder Include="CustomerAccountValidationRules\" />
+    <Folder Include="ValidationRules\AppRoleValidationRules\" />
+    <Folder Include="ValidationRules\CustomerAccountProcessValidationRules\" />
+    <Folder Include="ValidationRules\CustomerAccountValidationRules\" />
   </ItemGroup>
 
 </Project>

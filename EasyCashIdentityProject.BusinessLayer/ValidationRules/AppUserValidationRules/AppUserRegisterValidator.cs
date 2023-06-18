@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyCashIdentityProject.BusinessLayer.AppUserValidationRules
+namespace EasyCashIdentityProject.BusinessLayer.ValidationRules.AppUserValidationRules
 {
     public class AppUserRegisterValidator : AbstractValidator<AppUserRegisterDto>
     {
@@ -23,10 +23,10 @@ namespace EasyCashIdentityProject.BusinessLayer.AppUserValidationRules
             RuleFor(x => x.ConfirmPassword).NotEmpty().WithMessage("Sifre tekrar alani bos gecilmez");
             RuleFor(x => x.ConfirmPassword).Equal(y => y.Password).WithMessage("Sifreler eslesmiyor");
             RuleFor(x => x.Email).EmailAddress().WithMessage("Lutfen gecerli mail adresi giriniz");
-   
-        
-        
-        
+
+
+
+
         }
 
 
