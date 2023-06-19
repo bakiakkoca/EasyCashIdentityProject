@@ -10,7 +10,7 @@ namespace EasyCashIdentityProject.BusinessLayer.Concrete
 
         public CustomerAccountProcessManager(ICustomerAccountProcessDal customerAccountProcessDal)
         {
-            _customerAccountDal = customerAccountDal;
+            _customerAccountProcessDal = customerAccountProcessDal;
 
         }
 
