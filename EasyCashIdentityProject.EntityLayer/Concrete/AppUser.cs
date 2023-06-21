@@ -18,6 +18,7 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         public string District { get; set; } //ilce
         public string City { get; set; }
         public string ImageUrl { get; set; }
+        public int ConfirmCode { get; set; }
 
         public List<CustomerAccount> CustomerAccounts { get; set; }
         //iliski 1eCok tanimladik.

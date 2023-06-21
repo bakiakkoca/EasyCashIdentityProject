@@ -1,7 +1,9 @@
 ﻿using EasyCashIdentityProject.DtoLayer.Dtos.AppUserDtos;
 using EasyCashIdentityProject.EntityLayer.Concrete;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
 
 namespace EasyCashIdentityProject.PresentationLayer.Controllers
 {
@@ -33,18 +35,43 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
 
             if (ModelState.IsValid) //modelstate gecerliyse FluentValidation gectiyse tamamen
             {
-                AppUser appUsr = new AppUser()
+                Random random = new Random();
+				int code;
+				code = random.Next(100000, 1000000);
+				AppUser appUser = new AppUser()
+                
                 {
                     //burada appUserin ait propertieslere atamalar yapciaz
                     UserName = appUserRegisterDto.Username,
                     Name = appUserRegisterDto.Name,
                     Surname = appUserRegisterDto.Surname,
-                    Email = appUserRegisterDto.Email
+                    Email = appUserRegisterDto.Email,
+                    ConfirmCode = code
 
                 };
-                var result = await _userManager.CreateAsync(appUsr, appUserRegisterDto.Password);
+                var result = await _userManager.CreateAsync(appUser, appUserRegisterDto.Password);
                 if (result.Succeeded) //buraya kadar gelirse sayfaya yonlendiricez
                 {
+
+                    MimeMessage mimeMessage = new MimeMessage();
+                    MailboxAddress mailboxAddressFrom = new MailboxAddress("Easy Cash Admin", "bkakkoca@gmail.com");
+                    MailboxAddress mailboxAddressTo = new MailboxAddress("User", appUser.Email);
+
+                    mimeMessage.From.Add(mailboxAddressFrom);
+                    mimeMessage.To.Add(mailboxAddressTo);
+
+                    var bodybuilder = new BodyBuilder();
+                    bodybuilder.TextBody = "Kayit islemini gerceklestirmek icin onay kodunuz" + code;
+                    mimeMessage.Body = bodybuilder.ToMessageBody();
+
+                    mimeMessage.Subject = "Easy Cash Onay Kodu";
+
+                    SmtpClient client = new SmtpClient();
+                    client.Connect("smtp.gmail.com", 587, false);
+                    client.Authenticate("bkakkoca@gmail.com", "nrbqogiedrkzyqdr");
+                    client.Disconnect(true);
+
+
                     return RedirectToAction("Index", "ConfirmMail");
                     //sey gibi dusunebilirsin mailinize gonderdigimiz kodu girin diye.. 
                 }
