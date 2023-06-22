@@ -71,6 +71,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
                     client.Authenticate("bkakkoca@gmail.com", "nrbqogiedrkzyqdr");
                     client.Disconnect(true);
 
+                    TempData["Mail"] = appUserRegisterDto.Email;
 
                     return RedirectToAction("Index", "ConfirmMail");
                     //sey gibi dusunebilirsin mailinize gonderdigimiz kodu girin diye.. 
