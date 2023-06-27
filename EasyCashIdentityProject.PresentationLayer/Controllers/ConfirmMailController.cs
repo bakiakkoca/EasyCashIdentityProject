@@ -31,7 +31,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
 			{
 				user.EmailConfirmed = true;
 				await _userManager.UpdateAsync(user); //db ye yansittik
-				return RedirectToAction("Index", "MyProfile");
+				return RedirectToAction("Index", "Login");
 			}
 			return View();
 		}
