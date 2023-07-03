@@ -35,7 +35,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
 				//name gore name isimli kisinin tum bilgilerini getirdi EmailConfirmed kontrol etmemiz lazim
                 if (user.EmailConfirmed == true)
                 {
-                    return RedirectToAction("Index", "MyProfile");
+                    return RedirectToAction("Index", "MyAccounts");
 					//kontrol ettik emailconfirmed islemini yapmissa profiline gidicek yapmadiysa yapmasi lazim
                 }
 				//else lutfen mail adresinizi onaylayin
