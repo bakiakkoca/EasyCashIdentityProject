@@ -12,7 +12,11 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         public string ProcessType { get; set; } //islem turu
         public decimal Amount { get; set; } //para miktari ne kadar gonderildi
         public DateTime  ProcessDate { get; set; }
-        public int MyProperty { get; set; }
+        public int SenderID { get; set; }
+        public int ReceiverID { get; set;}
+        public CustomerAccount SenderCustomer { get; set; }
+        public CustomerAccount ReceiverCustomer { get; set; }
+
 
     }
 }

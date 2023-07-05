@@ -25,6 +25,8 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         //hesabin kime ait oldugunu bilmek icin ekledik
         //1eCok iliski 
 
+        public List<CustomerAccountProcess> CustomerSender { get; set; }
+        public List<CustomerAccountProcess> CustomerReceiver { get; set; }
 
     }
 }
